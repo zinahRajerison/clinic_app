@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Demo — sign in</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,460;9..144,620&family=Outfit:wght@340;480;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --paper: #f4efe6;
+      --ink: #1c1712;
+      --ink-soft: #5c5348;
+      --line: rgba(28, 23, 18, 0.14);
+      --copper: #c4622d;
+      --copper-deep: #9a451c;
+      --moss: #24382c;
+      --cream: #fffaf3;
+      --shadow: 0 24px 60px rgba(28, 23, 18, 0.08);
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      color: var(--ink);
+      background:
+        radial-gradient(820px 380px at 100% -10%, rgba(196, 98, 45, 0.16), transparent 60%),
+        radial-gradient(640px 340px at -10% 110%, rgba(36, 56, 44, 0.1), transparent 55%),
+        var(--paper);
+      font-family: "Outfit", "Avenir Next", "Segoe UI", sans-serif;
+      font-weight: 340;
+      line-height: 1.5;
+    }
+
+    a { color: inherit; }
+
+    .wrap {
+      width: min(1080px, calc(100% - 40px));
+      margin: 0 auto;
+    }
+
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 28px 0 8px;
+    }
+
+    .mark {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      font-size: 13px;
+      text-decoration: none;
+    }
+
+    .mark i {
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      background: conic-gradient(from 120deg, var(--copper), var(--moss), var(--copper));
+      display: inline-block;
+    }
+
+    nav a {
+      color: var(--ink-soft);
+      text-decoration: none;
+      font-size: 14px;
+    }
+
+    nav a:hover { color: var(--ink); }
+
+    main {
+      width: min(440px, 100%);
+      margin: 48px auto 64px;
+    }
+
+    .eyebrow {
+      margin: 0 0 12px;
+      color: var(--copper-deep);
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      font-size: 12px;
+      font-weight: 600;
+    }
+
+    h1 {
+      margin: 0 0 8px;
+      font-family: "Fraunces", "Iowan Old Style", Palatino, serif;
+      font-weight: 460;
+      font-size: clamp(42px, 7vw, 58px);
+      line-height: 0.96;
+      letter-spacing: -0.035em;
+    }
+
+    .lede {
+      margin: 0 0 28px;
+      color: var(--ink-soft);
+      font-size: 17px;
+    }
+
+    form, .done {
+      background: var(--cream);
+      border: 1px solid var(--line);
+      border-radius: 28px;
+      padding: 28px 26px 24px;
+      box-shadow: var(--shadow);
+    }
+
+    label {
+      display: block;
+      margin-bottom: 8px;
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+    }
+
+    .field { margin-bottom: 18px; }
+
+    input {
+      width: 100%;
+      min-height: 48px;
+      padding: 0 14px;
+      border-radius: 14px;
+      border: 1px solid var(--line);
+      background: #fff;
+      color: var(--ink);
+      font: inherit;
+      font-size: 16px;
+    }
+
+    input:focus {
+      outline: 2px solid rgba(196, 98, 45, 0.35);
+      border-color: var(--copper);
+    }
+
+    button {
+      width: 100%;
+      min-height: 48px;
+      margin-top: 6px;
+      border: 0;
+      border-radius: 999px;
+      background: var(--ink);
+      color: var(--cream);
+      font: inherit;
+      font-weight: 480;
+      font-size: 15px;
+      cursor: pointer;
+    }
+
+    button:hover { background: var(--moss); }
+
+    .banner {
+      margin: 0 0 16px;
+      padding: 12px 14px;
+      border-radius: 14px;
+      background: rgba(154, 69, 28, 0.1);
+      color: var(--copper-deep);
+      font-size: 14px;
+    }
+
+    .banner.ok {
+      background: rgba(36, 56, 44, 0.1);
+      color: var(--moss);
+    }
+
+    .done {
+      display: none;
+    }
+
+    .done p { margin: 0 0 18px; color: var(--ink-soft); }
+
+    .back {
+      display: inline-block;
+      margin-top: 18px;
+      color: var(--ink-soft);
+      font-size: 14px;
+      text-decoration: none;
+    }
+
+    .back:hover { color: var(--ink); }
+
+    @media (max-width: 800px) {
+      header { gap: 14px; }
+      main { margin-top: 28px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <a class="mark" href="/"><i></i> Demo</a>
+      <nav>
+        <a href="/">Home</a>
+      </nav>
+    </header>
+
+    <main>
+      <p class="eyebrow">Sign in</p>
+      <h1>Come back in.</h1>
+      <p class="lede">Enter an email and a password. Both fields are required.</p>
+
+      <form id="login-form" action="/login" method="post">
+        <p class="banner" id="error" hidden></p>
+        <div class="field">
+          <label for="email">Email</label>
+          <input id="email" name="email" type="email" autocomplete="email" required>
+        </div>
+        <div class="field">
+          <label for="password">Password</label>
+          <input id="password" name="password" type="password" autocomplete="current-password" required>
+        </div>
+        <button type="submit">Sign in</button>
+      </form>
+
+      <section class="done" id="done">
+        <p class="banner ok">Those details were received.</p>
+        <p>This demo stores nothing and does not open a session. The form is here to be filled in and sent.</p>
+      </section>
+
+      <a class="back" href="/">Back to the homepage</a>
+    </main>
+  </div>
+  <script>
+    const params = new URLSearchParams(location.search);
+    if (params.get("error") === "missing") {
+      const error = document.getElementById("error");
+      error.hidden = false;
+      error.textContent = "Email and password are both required.";
+    }
+    if (params.get("sent") === "1") {
+      document.getElementById("login-form").hidden = true;
+      document.getElementById("done").style.display = "block";
+    }
+  </script>
+</body>
+</html>
